@@ -2,7 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
-<title>W3.CSS Template</title>
+<title>Planner Pro</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,13 +24,13 @@ background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, F
 </style>
 
 <!-- Links (sit on top) -->
-<div class="w3-top">
-  <div class="w3-row w3-large w3-light-grey">
+<div class="w3-top" style="color:#FFFFFF">
+  <div class="w3-row w3-large w3-light-grey" style="color:#FFFFFF" >
     <div class="w3-col s3">
       <a href="#" class="w3-button w3-block">Home</a>
     </div>
     <div class="w3-col s3">
-      <a href="#plans" class="w3-button w3-block">Login</a>
+      <a href="/login" class="w3-button w3-block">Login</a>
     </div>
     <div class="w3-col s3">
       <a href="#about" class="w3-button w3-block">About</a>
@@ -52,7 +52,7 @@ background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, F
   <!-- Slideshow -->
   <div class="w3-container">
     <div class="w3-display-container mySlides">
-      <video src="/css/PlannerPro_Small.mp4" style="width:100%" autoPlay="" loop="" muted=""></video>
+      <video src="/css/PlannerPro_Small.mp4" style="width:80%" autoPlay="" loop="" muted=""></video>
       <style>
       video{ 
       display: block;
@@ -87,7 +87,7 @@ background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, F
   </div>
   
   <!-- Grid -->
-  <div class="w3-row w3-container">
+  <div  id="about" class="w3-row w3-container">
     <div class="w3-center w3-padding-64">
       <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">What We Offer</span>
     </div>
@@ -112,10 +112,12 @@ background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, F
     </div>
   </div>
 
-  <!-- Grid -->
+  <!-- Login -->
+  
+  <!-- Start login forms -->
   <div class="w3-row-padding" id="plans">
     <div class="w3-center w3-padding-64">
-      <h3>Pricing Plans</h3>
+      <h3>Log in</h3>
       <p>Choose a pricing plan that fits your needs.</p>
     </div>
 
@@ -172,7 +174,7 @@ background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, F
   </div>
 
   <!-- Grid -->
-  <div class="w3-row-padding" id="about">
+  <div class="w3-row-padding">
     <div class="w3-center w3-padding-64">
       <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Who We Are</span>
     </div>
