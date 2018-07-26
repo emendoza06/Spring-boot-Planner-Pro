@@ -20,6 +20,12 @@
 	</properties>
 
 	<dependencies>
+<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>mail</artifactId>
+    <version>1.4</version>
+</dependency>
 
 		<!-- Web -->
 		<dependency>
@@ -75,6 +81,14 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.193</version>
 		</dependency>
+		
+		<!-- Twilio SDK -->
+		<dependency>
+  <groupId>com.twilio.sdk</groupId>
+  <artifactId>twilio</artifactId>
+  <version>7.22.0</version>
+</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>

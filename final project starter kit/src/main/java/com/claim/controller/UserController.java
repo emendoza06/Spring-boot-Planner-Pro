@@ -11,12 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.claim.entity.Plan;
 import com.claim.entity.User;
+import com.claim.service.PlanService;
 import com.claim.service.UserService;
-
+import org.springframework.ui.ModelMap;
 @Controller
 public class UserController {
 	
-		
+	@Autowired
+	private PlanService planService;
 		@Autowired
 		private UserService userService;
 		
@@ -26,13 +28,14 @@ public class UserController {
 			return new ModelAndView("login", "user", new User());
 		}
 		
-		@RequestMapping(value="/login", method=RequestMethod.POST)
-		public ModelAndView login(@ModelAttribute("user") User user, HttpSession session) {
+		@RequestMapping(value="/login", method=RequestMethod.POST )
+		public ModelAndView login(@ModelAttribute("user") User user, HttpSession session,ModelMap model) {
 			User myUser = userService.loginUser(user.getEmail(), user.getPassword());
 			
 			if(myUser != null)
 			{
 				session.setAttribute("loggedInUser", myUser);
+				model.addAttribute("plans", planService.getAllPlans());
 				return new ModelAndView("profile","plan", new Plan());
 			}
 			else

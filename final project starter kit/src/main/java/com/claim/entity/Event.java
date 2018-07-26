@@ -2,6 +2,8 @@ package com.claim.entity;
 
 
 
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="events")
-public class Events {
+public class Event {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -23,9 +25,30 @@ public class Events {
 	private int cost; 
 	@Column(name="event")
 	private String event; 
+		
 	
-	
-	
+
+	public Event() {
+	}
+
+
+
+	/**
+	 * @return the eventId
+	 */
+	public int getEventId() {
+		return eventId;
+	}
+
+
+
+	/**
+	 * @param eventId the eventId to set
+	 */
+	public void setEventId(int eventId) {
+		this.eventId = eventId;
+	}
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -35,15 +58,6 @@ public class Events {
 		return event + " costs $" + cost;
 	}
 
-
-
-	public Events(String destination, int cost, String event) {
-		super();
-		this.destination = destination;
-		this.cost = cost;
-		this.event = event;
-		
-	}
 
 
 

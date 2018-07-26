@@ -29,9 +29,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
-          <img src="/css/profileavatar.png" style="width:100%" alt="Avatar">
+          <img src="/css/profileavatar2.jpg" style="width:100%" alt="Avatar">
           <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2 id="profile-name">Jane Doe</h2>
+            <h2 id="profile-name" style="color:white;">Epharra</h2>
             <!-- Profile Name style -->
             <style>
             #profile-name{ 
@@ -138,9 +138,9 @@ button:hover {
 }
 </style>
 
-<!-- Browse Plan Modal -->
+<!-- Travel Deals Modal -->
 
-<!-- Displays all plans shared publically that have gone into plan inventory -->
+<!-- Widget to look for flights, hotel, cars -->
 
 <div id="browse-plans" class="modal">
   
@@ -148,16 +148,30 @@ button:hover {
         
     <div class="imgcontainer">
       <span onclick="document.getElementById('browse-plans').style.display='none'" class="close" title="Close PopUp">&times;</span>
-      <img src="1.png" alt="Avatar" class="avatar">
-      <h1 style="text-align:center">Browse Plans</h1>
+      <img src="/css/travelDealsAvatar.jpg" alt="Avatar" class="avatar">
+      <h1 style="text-align:center">Travel Deals</h1>
     </div>
 
     <div class="container">
-    <!-- Using checkbox type to put calendar images into of public plans -->
-    <!-- form:input tag needs to be a conditional rendering. If there are plans in inventory THEN display array of inventory ELSE do not render form:input -->
-      <!--change path-->
-      <input style="margin:26px 30px;"/> Plan 1, plan 2, etc.    
-      <button type="submit">View Plan</button>  
+   
+   <!-- Travel Deals styling -->
+   
+   <style> 
+   .skyscanner-widget {
+  padding: 10px;
+  border-radius: 10px;
+  }
+  ._6HsSRM0ci17RDnELz3uRb{
+  	width: 80%;
+  }
+	.skyscanner-widget.skyscanner-search-widget._1vXnnNW5q3tGjvyh8vn2K3{ 
+	background-image: linear-gradient(to right, #ffffff 0%, #e8f5ee 51%, #bff3ce 100%);
+	}
+
+   </style>
+   
+     <div data-skyscanner-widget="SearchWidget" data-locale="en-GB" data-params="colour:solar;fontColour:#000;buttonColour:dawn;buttonFontColour:#fff;"></div>
+<script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script> 
     </div>
     
   </form:form>
@@ -175,7 +189,7 @@ window.onclick = function(event) {
 }
 </script>
 
-<!-- End Browse Plan Modal -->
+<!-- End Travel Deals Modal -->
 
 
 
@@ -184,11 +198,11 @@ window.onclick = function(event) {
 
 <div id="create-plan" class="modal">
   
-  <form:form action="savePlan" method="Post" class="modal-content animate" modelAttribute="plan">
+  <form:form action="createPlan" method="Post" class="modal-content animate" modelAttribute="plan">
         
     <div class="imgcontainer">
       <span onclick="document.getElementById('create-plan').style.display='none'" class="close" title="Close PopUp">&times;</span>
-      <img src="1.png" alt="Avatar" class="avatar">
+      
       <h1 style="text-align:center">Create a plan</h1>
     </div>
 
@@ -232,7 +246,7 @@ window.onclick = function(event) {
 
 
 
-<!-- Create About Me Modal -->
+<!--  About Me Modal -->
 
 <div id="about-me" class="modal">
   
@@ -281,13 +295,18 @@ window.onclick = function(event) {
     <div class="imgcontainer">
       <span onclick="document.getElementById('messages').style.display='none'" class="close" title="Close PopUp">&times;</span>
       <img src="1.png" alt="Avatar" class="avatar">
-      <h1 style="text-align:center">Create a plan</h1>
+      <h1 style="text-align:center">Messages</h1>
     </div>
 
     <div class="container">
-      <!-- checkbox next to each message for the delete/select function -->
-      <input type="checkbox" placeholder="message"/>      
-      <button type="submit">View</button>
+      <table>
+        <c:forEach items="${plans}" var="plan">
+		<tr>
+        <td><h5 class="w3-opacity"><b>Safe travels to <c:out value="${plan.getDestination() }"/>!</b></h5>
+        <td><h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><span class="w3-tag w3-teal w3-round"><a href="/messageToBlog">Check out our blog for traveling tips</span></a></h6>
+		</tr>
+        </c:forEach>
+          </table>
     </div>
     
   </form:form>
@@ -314,48 +333,34 @@ window.onclick = function(event) {
 
         
         <div class="w3-container">
-          <button onclick="document.getElementById('browse-plans').style.display='block'"><p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Browse Plans</p></button>
+          <button onclick="document.getElementById('browse-plans').style.display='block'"><p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Travel Deals</p></button>
           <button onclick="document.getElementById('create-plan').style.display='block'"><p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Create Plan</p></button>
           <button onclick="document.getElementById('about-me').style.display='block'"><p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>About Me</p></button>
           <button onclick="document.getElementById('messages').style.display='block'"><p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Messages</p></button>
          
           <hr>
 
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Rank</b></p>
-          <p>Adobe Photoshop</p>
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Reach 100% for your next Travel Reward!</b></p>
+          <p>Frequent Flyer Miles Points</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
             <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
           </div>
-          <p>Photography</p>
+          <p>Hotel Loyalty Points</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
             <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
               <div class="w3-center w3-text-white">80%</div>
             </div>
           </div>
-          <p>Illustrator</p>
+          <p>Car Rental Points</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
             <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
           </div>
-          <p>Media</p>
+          <p>Vacation Packages Purchase Points</p>
           <div class="w3-light-grey w3-round-xlarge w3-small">
             <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
           </div>
           <br>
 
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Plans I've been invited to</b></p>
-          <p>English</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
-          </div>
-          <p>Spanish</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
-          </div>
-          <p>German</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
-          </div>
-          <br>
         </div>
       </div><br>
 
@@ -371,7 +376,7 @@ window.onclick = function(event) {
         <table>
         <c:forEach items="${plans}" var="plan">
 		<tr>
-        <td><h5 class="w3-opacity"><b><a href="/calendar"><c:out value="${plan.getDestination() }"/></a></b></h5>
+        <td><h5 class="w3-opacity"><b><a href="/calendar?dest=${plan.destination}&budget=${plan.budget}"><c:out value="${plan.getDestination() }"/></a></b></h5>
         <td><h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Check In : <c:out value="${plan.getCheckIn() }"/><span class="w3-tag w3-teal w3-round">Budget :<c:out value="${plan.getBudget() }"/></span></h6>
 		</tr>
         </c:forEach>
@@ -380,15 +385,7 @@ window.onclick = function(event) {
         </div>
       </div>
 
-      <div class="w3-container w3-card w3-white">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Plan Details</h2>
-        
-        <!-- Calendar -->
-        
-		
-        
-        <!-- End Calendar -->
-      </div>
+  
 
     <!-- End Right Column -->
     </div>
@@ -400,14 +397,14 @@ window.onclick = function(event) {
 </div>
 
 <footer class="w3-container w3-teal w3-center w3-margin-top">
-  <p>Find me on social media.</p>
+  <p>Planner Pro</p>
   <i class="fa fa-facebook-official w3-hover-opacity"></i>
   <i class="fa fa-instagram w3-hover-opacity"></i>
   <i class="fa fa-snapchat w3-hover-opacity"></i>
   <i class="fa fa-pinterest-p w3-hover-opacity"></i>
   <i class="fa fa-twitter w3-hover-opacity"></i>
   <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  
 </footer>
 
 </body>

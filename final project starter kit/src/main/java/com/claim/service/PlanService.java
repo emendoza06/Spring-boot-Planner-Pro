@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 
 import com.claim.entity.Plan;
-import com.claim.repository.EventsRepository;
+
 import com.claim.repository.PlanRepository;
 
 @Service
@@ -16,7 +16,7 @@ public class PlanService {
 
 	@Autowired
 	private PlanRepository planRepository;
-	private EventsRepository eventsRepository;
+
 	
 	public void savePlan(Plan plan) {
 		// TODO Auto-generated method stub
@@ -27,8 +27,5 @@ public class PlanService {
 		return(ArrayList<Plan>) planRepository.findAll();
 	}
 
-	/*public Plan createPlan(String destination, int budget) {
-		return eventsRepository.findEvents(destination, budget);
-	}*/
 
 }
