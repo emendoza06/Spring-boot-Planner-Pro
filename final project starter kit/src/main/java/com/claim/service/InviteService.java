@@ -26,7 +26,7 @@ public class InviteService {
 	        Message message = Message.creator(
 	        		new PhoneNumber("+1" + invite.getPhoneNumber()), 
 	        		new PhoneNumber("+16677716957"), 
-	        		"USER has invited you to be part of their DESTINATION plan").create();
+	        		"You've been invited to a plan!").create();
 	        		
 	        		System.out.println(message.getSid());
 	}

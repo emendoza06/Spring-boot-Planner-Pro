@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
  
  	
  	
@@ -294,8 +295,10 @@ window.onclick = function(event) {
         
     <div class="imgcontainer">
       <span onclick="document.getElementById('messages').style.display='none'" class="close" title="Close PopUp">&times;</span>
-      <img src="1.png" alt="Avatar" class="avatar">
+      <img src="/css/mailIcon.png" alt="Avatar" class="avatar">
+		
       <h1 style="text-align:center">Messages</h1>
+
     </div>
 
     <div class="container">
@@ -303,6 +306,16 @@ window.onclick = function(event) {
         <c:forEach items="${plans}" var="plan">
 		<tr>
         <td><h5 class="w3-opacity"><b>Safe travels to <c:out value="${plan.getDestination() }"/>!</b></h5>
+        <style>
+        b {
+  
+    font-size: 20px;
+}
+a {
+    color: inherit;
+    font-size: 20px;
+}
+        </style>
         <td><h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><span class="w3-tag w3-teal w3-round"><a href="/messageToBlog">Check out our blog for traveling tips</span></a></h6>
 		</tr>
         </c:forEach>
@@ -336,7 +349,7 @@ window.onclick = function(event) {
           <button onclick="document.getElementById('browse-plans').style.display='block'"><p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Travel Deals</p></button>
           <button onclick="document.getElementById('create-plan').style.display='block'"><p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Create Plan</p></button>
           <button onclick="document.getElementById('about-me').style.display='block'"><p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>About Me</p></button>
-          <button onclick="document.getElementById('messages').style.display='block'"><p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Messages</p></button>
+          <button onclick="document.getElementById('messages').style.display='block'"><p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Messages(${fn:length(plans) })</p></button>
          
           <hr>
 
